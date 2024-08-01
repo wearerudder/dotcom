@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import ThoughtsLayout from '../../layouts/ThoughtsLayout.astro';
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+  const thoughts = await getCollection('thoughts');
+  return thoughts.map(entry => ({
+    params: { thought: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+const renderedBody = marked(entry.body);
+---
+
+<ThoughtsLayout title={entry.data.title}>
+    <h1 class="text-6xl lg:text-8xl font-black text-[#fff]">{entry.data.title}</h1>
+    <div class="prose prose-xl prose-invert prose-rudder mt-8 lg:mt-16" set:html={renderedBody}></div>
+</ThoughtsLayout>
+

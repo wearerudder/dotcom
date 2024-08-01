@@ -1,0 +1,35 @@
+---
+console.log(Astro.props);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Rudder</title>
+	</head>
+	<body class="bg-[#23265D]">
+		<div class="container mx-auto max-w-4xl my-12 px-4 lg:px-0">
+			<div class="mb-12 lg:mb-24">
+                <a href="/">
+                    <img src="/logo.svg" alt="Rudder" class="h-16" />
+                </a>
+			</div>
+			<slot />
+            <hr class="mt-24 font-bold w-1/2 border-t-4 border-[#C93527]"/>
+            <div class="text-3xl lg:text-6xl mt-12 lg:mt-24 font-bold">
+				<div class="text-[#fff] mb-6 lg:mb-12">
+					Get in touch with us to talk about how we can work together to build something great.
+				</div>
+				<div class="leading-normal flex flex-col items-start">
+					<a class="underline text-[#00AFA6] hover:text-white" href="mailto:hello@wearerudder.com">Email us</a>
+				</div>
+			</div>
+			<div class="text-2xl mt-24 font-bold">
+				<div class="text-[#fff] mb-12">&copy; 2024 Rudder LLC</div>
+			</div>
+		</div>
+	</body>
+</html>
